@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-
-//import { LoginDto } from '../dto/login.dto';
-//import { LoginResponse } from '../models/login-response.interface';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginResponse } from '../models/login-response.interface';
@@ -11,7 +8,8 @@ const LOGIN_URL = 'https://www.minitwitter.com:3001/apiv1/auth/login';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type':  'application/json',
+
   })
 };
 

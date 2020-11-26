@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -8,9 +7,9 @@ import { LoginServiceService } from './services/login-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { MenuComponent } from './components/menu/menu.component';
-import { MatMenuModule, MatIcon, MatSidenav, MatSidenavContainer, MatSidenavContent} from '@angular/material';
-import { FlexLayoutModule} from '@angular/flex-layout';
+import { MatTableModule,MatMenuModule, MatIcon, MatToolbar} from '@angular/material';
+import { AllTweetsComponent } from './components/all-tweets/all-tweets.component';
+import {TweetService} from './services/tweet.service';
 
 
 
@@ -19,12 +18,9 @@ import { FlexLayoutModule} from '@angular/flex-layout';
   declarations: [
     AppComponent,
     LoginComponent,
-    MenuComponent,
+    AllTweetsComponent,
     MatIcon,
-    MatSidenav,
-    MatSidenavContainer,
-    MatSidenavContent,
-        
+    MatToolbar,
   ],
   imports: [
     BrowserModule,
@@ -33,11 +29,9 @@ import { FlexLayoutModule} from '@angular/flex-layout';
     BrowserAnimationsModule,
     FormsModule,
     MatMenuModule,
-    FlexLayoutModule
-    
-
+    MatTableModule,
   ],
-  providers: [LoginServiceService],
+  providers: [LoginServiceService, TweetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
