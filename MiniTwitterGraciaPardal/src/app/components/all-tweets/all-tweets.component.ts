@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { log } from 'console';
 import { Tweet} from 'src/app/models/TweetResponse';
 import { TweetService } from 'src/app/services/tweet.service';
 
@@ -8,8 +9,8 @@ import { TweetService } from 'src/app/services/tweet.service';
   styleUrls: ['./all-tweets.component.scss']
 })
 export class AllTweetsComponent implements OnInit {
-  listaTweets:Tweet[];
-  displayedColumns:['id', 'mensaje','user'];
+  listaTweets:Tweet[] = [];
+  displayedColumns:['id', 'mensaje'];
 
 
   constructor( private tweetsService: TweetService) { }
@@ -18,10 +19,14 @@ export class AllTweetsComponent implements OnInit {
     this.loadTweets();
   }
   loadTweets() {
-    this.tweetsService.allTweets().subscribe(resp=>{
-      this.listaTweets = resp;
+    this.tweetsService.allTweets().subscribe(resp=>{   
+       
+        this.listaTweets.push(resp);
 
-      console.log(this.listaTweets);
+          console.log(this.listaTweets);
+          
+          
+         
     });
   }
 
