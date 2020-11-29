@@ -1,0 +1,16 @@
+<div class="contenedor">
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="nuevoUser.email" type="text" #em="ngModel" placeholder="Email">
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput [(ngModel)]="nuevoUser.password" type="text" #pwd="ngModel" placeholder="Password">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="nuevoUser.username" type="text" #un="ngModel" placeholder="UserName">
+</mat-form-field>
+
+
+  <button mat-raised-button color="primary" (click)="registrar()">Sumar</button>
+
+</div>

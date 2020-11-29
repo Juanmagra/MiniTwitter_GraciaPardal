@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header><h2>Log In</h2></mat-card-header>
+  <mat-card-content>
+
+    <input type="email" [(ngModel)]="usuario.email" #em="ngModel" required [email]="true" placeholder="Correo electronico"/>
+
+  <div [hidden]="em.valid || em.pristine" class="alert alert-danger">
+    <mat-error *ngIf="em.errors?.required">
+      El campo email es requerido.
+    </mat-error>
+    <mat-error *ngIf="em.errors?.email">
+      El campo email debe estar bien formado.
+    </mat-error>
+  </div>
+
+  <input type="password" [(ngModel)]="usuario.password" #pwd="ngModel" pattern="[0-9]{4,6}" required placeholder="Contraseña" />
+
+  <div [hidden]="pwd.valid || pwd.pristine" class="alert alert-danger">
+    <mat-error *ngIf="pwd.errors?.required">
+      El campo contraseña es requerido.
+    </mat-error>
+    <mat-error *ngIf="pwd.errors?.pattern">
+      La contraeña debe ser un número entre 4 y 6 dígitos
+    </mat-error>
+     </div>
+    <span><a [routerLink]="[ '/register' ]">Registrate ya!</a></span>
+  <input type="button" (click)="doLogin()" value="Login" />
+  </mat-card-content>
+</mat-card>

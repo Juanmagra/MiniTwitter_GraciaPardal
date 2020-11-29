@@ -1,0 +1,25 @@
+<mat-toolbar>
+  <span class="fill-remaining-space">
+    <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+    <span (mouseleave)="menuTrigger.closeMenu()">
+      <button mat-menu-item [routerLink]="[ '/login' ]">
+        <mat-icon>login</mat-icon>
+        <span >Login</span>
+      </button>
+      <button mat-menu-item [routerLink]="[ '/allTweets' ]">
+        <mat-icon>people_outline</mat-icon>
+        <span >All Tweets</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </span>
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">Mini Twitter</span>
+</mat-toolbar>
+<router-outlet></router-outlet>
