@@ -22,7 +22,8 @@ export class RegisterComponent implements OnInit {
 
   registrar(){
     this.singUpService.registro(this.nuevoUser).subscribe(resp=>{
-        alert("Registrado" + resp.username)
+        alert("Registrado usuario: " + resp.username+"\n"
+        +"Con email: "+ resp.email)
     });
 
   }
